@@ -1,10 +1,47 @@
-# Teach AI To Play Snake! Reinforcement Learning With PyTorch and Pygame
+# 🐍 Snake RL Agent (Deep Q-Learning)
 
-In this Python Reinforcement Learning Tutorial series we teach an AI to play Snake! We build everything from scratch using Pygame and PyTorch. The tutorial consists of 4 parts:
+Учебно-прикладной проект: самообучающийся агент для игры **«Змейка»** на основе **обучения с подкреплением** (Reinforcement Learning) и **Deep Q-Learning**.  
+Агент учится играть, получая награды от среды: положительная награда за еду, отрицательная — за проигрыш.
 
-You can find all tutorials on my channel: [Playlist](https://www.youtube.com/playlist?list=PLqnslRFeH2UrDh7vUmJ60YrmWd64mTTKV)
+---
 
-- Part 1: I'll show you the project and teach you some basics about Reinforcement Learning and Deep Q Learning.
-- Part 2: Learn how to setup the environment and implement the Snake game.
-- Part 3: Implement the agent that controls the game.
-- Part 4: Implement the neural network to predict the moves and train it.
+## 🚀 Возможности проекта
+
+- Игровая среда «Змейка» (Pygame) с пошаговым взаимодействием.
+- Обучение агента через Deep Q-Learning (PyTorch).
+- Память опыта (experience replay): обучение на текущем шаге и на выборках из памяти.
+- График обучения: score и mean score по эпизодам.
+- Сохранение прогресса обучения:
+  - `model/checkpoint.pth` — полный чекпоинт (веса + оптимайзер + рекорд + число игр)
+  - `model/model.pth` — только веса модели
+  - `model/record.txt` — глобальный рекорд (для удобства)
+
+---
+
+## 📁 Структура проекта
+
+- `agent.py` — агент и основной цикл обучения (сбор опыта, обучение, сохранение модели)
+- `game.py` — игровая среда `SnakeGameAI` (логика игры, награды, отрисовка)
+- `model.py` — нейросеть `Linear_QNet` и тренер `QTrainer`
+- `helper.py` — построение графика обучения (score / mean score)
+- `snake_game_human.py` — версия змейки с управлением человеком (стрелками)
+- `model/` — каталог сохранённых моделей (`checkpoint.pth`, `model.pth`, `record.txt`)
+- `requirements.txt` — зависимости проекта
+
+---
+
+## ✅ Требования
+
+- Python **3.10+**
+- ОС: Windows / Linux / macOS (графическая среда нужна для окна игры)
+
+---
+
+## 📦 Установка
+
+1) Создайте и активируйте виртуальное окружение (рекомендуется):
+
+**Windows**
+```bash
+python -m venv .venv
+.venv\Scripts\activate
